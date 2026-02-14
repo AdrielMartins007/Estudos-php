@@ -1,0 +1,7 @@
+<?php /* DELIMITADOR DO CODIGO, SO VAI LER OS ITENS DENTRO DO CODIGO */
+
+$txt = 'Olá mundo'; /* COMANDO PARA CRIAR UMA VARIAVEL */
+
+echo "mensagem: $txt"; /* COMANDO PARA EXIBIR TEXTO */
+
+?>
