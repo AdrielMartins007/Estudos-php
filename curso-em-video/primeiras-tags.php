@@ -25,7 +25,7 @@
 
         ?>
 
-        <?= '$nome' ?> <!-- COMANDO SIMPLES PARA EXIBIR O 'ECHO', SO FUNCIONA SE TIVER SO O ECHO -->
+        <?= 'Olá mundo' ?> <!-- COMANDO SIMPLES PARA EXIBIR O 'ECHO', SO FUNCIONA SE TIVER SO O ECHO -->
 
     </h3>
 
