@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -21,9 +21,11 @@
 
         print 'testando outra tag de exibição'; /* OUTRA TAG DE EXIBIÇÃO É O PRINT, QUE TAMBEM PODE SER USADA PRA IMPRIMIR UMA MENSAGEM */
 
-        phpinfo() /* COMANDO PARA MOSTRAR AS INFORMAÇÕES DO SISTEMA E A VERSAO DO PHP */
+        /* phpinfo() COMANDO PARA MOSTRAR AS INFORMAÇÕES DO SISTEMA E A VERSAO DO PHP */
 
         ?>
+
+        <?= '$nome' ?> <!-- COMANDO SIMPLES PARA EXIBIR O 'ECHO', SO FUNCIONA SE TIVER SO O ECHO -->
 
     </h3>
 
