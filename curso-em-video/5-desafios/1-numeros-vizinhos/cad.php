@@ -18,11 +18,11 @@
         $antecessor = $numero - 1;
         $sucessor = $numero + 1;
         
-        echo "<h3>O numero que vc escolheu é $numero<h3>";
+        echo "<h2>O numero que vc escolheu é $numero<h2>";
 
-        echo "<h3>O antecessor é: $antecessor<h3>";
+        echo "<h2>O antecessor é: $antecessor<h2>";
 
-        echo "<h3>O sucessor é: $sucessor<h3>";
+        echo "<h2>O sucessor é: $sucessor<h2>";
         
         ?>
 
