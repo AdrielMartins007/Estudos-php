@@ -14,7 +14,7 @@
 
         <?php
         
-        $numero = $_GET["numero"];
+        $numero = $_REQUEST["numero"] ?? 0; /* COMANDO PARA PEGAR O VALOR QUE O USUARIO ESCREVER MO INPUT. SE CASO NAO ESCREVER NADA, É MANDADO O VALOR 0*/
         $antecessor = $numero - 1;
         $sucessor = $numero + 1;
         
