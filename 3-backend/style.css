@@ -1,0 +1,63 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-image: linear-gradient(to bottom, rgb(62, 103, 103), rgb(36, 60, 60));
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1{
+    color: white;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+form{
+    background-color: rgba(255, 255, 255, 0.522);
+    width: 500px;
+    height: 400px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 8px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form .entrada{
+    margin-bottom: 20px;
+    width: 60%;
+}
+
+.entrada input{
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+}
+
+.entrada label{
+    font-size: 20px;
+}
+
+form button{
+    padding: 15px;
+    width: 25%;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 20px;
+}
