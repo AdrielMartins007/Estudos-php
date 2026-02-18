@@ -1,0 +1,25 @@
+- CRIAÇÃO DO BANCO DE DADOS -
+
+O primeiro ponto e o mais importante é a criação do banco de dados. Dentro de um programa onde vc visualiza o banco(heidsql) ou o proprio terminal vc inicia os primeiros comandos{
+    ex:
+
+    CREATE DATABASE login;
+
+    USE login;
+
+    OBS: Aqui é a criação do banco de dados com o nome 'login' e depois vc está selecionando o banco de dados aonde vc irá criar as tabelas e os itens dentro dela.
+}
+
+O proximo passo é a criação das tabelas{
+    ex:
+
+    CREATE TABLE usuarios (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nome VARCHAR(100) NOT NULL,
+        email VARCHAR(150) NOT NULL UNIQUE,
+        senha VARCHAR(255) NOT NULL
+    );
+
+    OBS: Aqui é a criação da tablea 'usuarios', onde vc está incluindo o id, nome, email e senha. O id ele tem 'auto incremento', ou seja, a cada novo usuario um numero novo é inserido. O 'VARCHAR(100)' é o limite de caracteres que ele vai armazenar. 'UNIQUE' significa que deve ser unico.
+
+}
