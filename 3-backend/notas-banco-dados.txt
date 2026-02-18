@@ -42,9 +42,11 @@ O primeiro passo é fazer o arquivo de ligação com o banco de dados, onde vai 
 
     usuario(é o nome de usuario, por padrao vem 'root'), 
 
-    senha(senha de cadastro do banco de dados, é a senha que vc crio quando estava instalando na sua maquina), 
+    senha(senha de cadastro do banco de dados, é a senha que vc crio quando estava instalando o banco de dados na sua maquina), 
 
     banco(nome do banco de dados que vc criou, nao é do SGBD)
+
+    So ressaltando que os nomes  das variaveis fica ao seu critério...
 
 }
 
@@ -55,7 +57,7 @@ Depois de informar os dados para ligação do banco de dados, é necessário faz
 
 }
 
-Agora vem o passo da verificação se conseguiu conexão ou nao. Vai ser um comando simples de 'if e else', onde se conectado ou nao ele manda uma mensagem{
+Agora vem o passo da verificação, se conseguiu conexão ou não. Vai ser um comando simples de 'if e else', onde se conectado ou nao ele manda uma mensagem{
     ex:
 
     if(!$conexao){
@@ -64,7 +66,7 @@ Agora vem o passo da verificação se conseguiu conexão ou nao. Vai ser um coma
         echo "CONECTADO!"; 
     }
 
-    OBS: dentro do 'if e else' tem uma função onde mostra aonde ta o erro se caso nao conectar, que é o 'mysqli_connect_error()'. Importante lembrar que uma vez conectado, deve-se tirar a mensagem de 'conectado', pq se nao, todas as telas que vc for iniciar vai mostrar ela sempre.
+    OBS: dentro do 'if e else' tem uma função onde mostra aonde ta o erro se caso nao conectar, que é o 'mysqli_connect_error()'. Importante lembrar que uma vez conectado, deve-se tirar a mensagem de 'conectado', pq se nao, todas as telas que vc for iniciar vai mostrar ela.
 
 }
 
@@ -85,14 +87,14 @@ Se caso vc quisesse fazer ligação de outra pagina com o banco de dados, vc ter
 
 - PREPARANDO O HTML PARA ENVIAR DADOS PARA O PHP -
 
-Importante ressaltar que para mandar os valores para o php e depois para o banco de dado, é importante que estejam dentro do 'form' no html, pq dentro dele vamos informar a 'action' e o 'method', onde vamos informar aonde vamos enviar e que metodo vamos enviar.{
+Importante ressaltar que para mandar os valores para o php e depois para o banco de dado, é importante que estejam dentro do 'form' no html, pq dentro dele vamos informar a 'action' e o 'method', onde vamos informar aonde vamos enviar e qual metodo vamos enviar.{
     ex:
 
     <form action="" method="post">
 
     </form>
 
-    OBS: É dentro dela aonde vamos criar todos os comandos para receber e enviar dados para o PHP.
+    OBS: O 'action' é para onde os valores dos formulario vao, como nao vamos mandar pra nenhuma outra pagina, vamos deixar vazio, oq quer dizer, que vamos mandar pra mesma pagina aonde vamos execultar o php.
 
 }
 
@@ -101,10 +103,10 @@ Dentro do 'form' vamos criar as tags aonde vamos receber os valores{
 
     <input type="text" name="nome" required>
 
-    OBS: Dentro da tag input, vamos receber os valores, ou seja, nesse exemplo vamos receber o nome do usuario. É importante sempre informar o 'name' da tag, pq é a partir dela que vamos conseguir fazer a ligação e pagar os valores para incluir nas variaveis do php.
+    OBS: Dentro da tag input, vamos receber os valores, ou seja, nesse exemplo vamos receber o nome do usuario. É importante sempre informar o 'name' da tag, pq é a partir dela que vamos conseguir fazer a ligação e pegar os valores para incluir nas variaveis do php.
 }
 
-E por ultimo e não menos importante, um botão para envio dos valores do 'type' submit{
+E por ultimo e não menos importante, um botão do 'type' submit para envio dos valores{
     ex:
 
     <button type="submit">Enviar</button>
