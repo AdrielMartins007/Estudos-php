@@ -1,5 +1,21 @@
 <?php 
 
+/* INCLUINDO DADOS DO BANCO DE DADOS */
 
+$servidor = "localhost"; /* NOME DO SERVIDOR */
+$usuario = "root"; /* USUARIO */
+$senha = "password"; /* SENHA DE CRIAÇÃO DO BANCO DE DADOS */
+$banco = "login"; /* NOME DO BANCO DE DADOS */
+
+/* FAZENDO A CONEXÃO COM O BANCO DE DADOS */
+
+$conexao = mysqli_connect($servidor, $usuario, $senha, $banco);
+/* CRIAÇÃO DE UMA VARIAVEL E DEPOIS INCLUINDO A FUNÇÃO DE CONEXÃO COM O BANCO DE DADOS, DENTRO DA FUNÇÃO INCLU-SE AS VARIAVEIS DE CONEXÃO QUE FOI CRIADO MAIS EM CIMA */
+
+if(!$conexao){ /* FAZENDO A VERIFICAÇÃO DE CONEXAO, SE CONEXAO DER ERRO '!' */
+    die("CONEXAO FALHOU" . mysqli_connect_error()); /* AQUI SE O SISTEMA DER ERRO ELE PARA, MOSTRA UMA MENSAGEM DE ERRO E PEDE PRA FUNCAO MOSTRAR AONDE FOI O ERRO 'mysqli_connect_error()' */
+} else {
+    echo "CONECTADO!"; /* MENSAGEM DE RETORNO SE CASO NAO DER ERRO... */
+}
 
 ?>
