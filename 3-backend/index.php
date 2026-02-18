@@ -12,7 +12,7 @@
 
     <h1>FAÇA SEU CADASTRO</h1>
 
-    <form action="cadastro.php" method="post">
+    <form action="" method="post">
 
         <div class="entrada">
             <label for="">Nome:</label>
