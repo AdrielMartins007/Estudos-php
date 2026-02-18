@@ -23,3 +23,124 @@ O proximo passo é a criação das tabelas{
     OBS: Aqui é a criação da tablea 'usuarios', onde vc está incluindo o id, nome, email e senha. O id ele tem 'auto incremento', ou seja, a cada novo usuario um numero novo é inserido. O 'VARCHAR(100)' é o limite de caracteres que ele vai armazenar. 'UNIQUE' significa que deve ser unico.
 
 }
+
+-----------------------------------------------------------------------------------------------------------
+
+- FAZENDO A LIGAÇÃO COM O BANCO DE DADOS -
+
+O primeiro passo é fazer o arquivo de ligação com o banco de dados, onde vai ser passado os valores do banco de dados para assim efetuar a conexao{
+    ex:
+
+    $servidor = "localhost";
+    $usuario = "root";
+    $senha = "password";
+    $banco = "login";
+
+    OBS: 
+
+    servidor(normalmente é 'localhost'), 
+
+    usuario(é o nome de usuario, por padrao vem 'root'), 
+
+    senha(senha de cadastro do banco de dados, é a senha que vc crio quando estava instalando na sua maquina), 
+
+    banco(nome do banco de dados que vc criou, nao é do SGBD)
+
+}
+
+Depois de informar os dados para ligação do banco de dados, é necessário fazer a conexão, onde vc cria uma variavel e usa a funcao 'mysqli_connect()', e dentro dela vc inclui todas as variaveis que vc criou no começo com os valores que vc atribuiu do banco de dados{
+    ex:
+
+    $conexao = mysqli_connect($servidor, $usuario, $senha, $banco);
+
+}
+
+Agora vem o passo da verificação se conseguiu conexão ou nao. Vai ser um comando simples de 'if e else', onde se conectado ou nao ele manda uma mensagem{
+    ex:
+
+    if(!$conexao){
+        die("CONEXAO FALHOU" . mysqli_connect_error());
+    } else {
+        echo "CONECTADO!"; 
+    }
+
+    OBS: dentro do 'if e else' tem uma função onde mostra aonde ta o erro se caso nao conectar, que é o 'mysqli_connect_error()'. Importante lembrar que uma vez conectado, deve-se tirar a mensagem de 'conectado', pq se nao, todas as telas que vc for iniciar vai mostrar ela sempre.
+
+}
+
+-----------------------------------------------------------------------------------------------------------
+
+- INCLUINDO NO ARQUIVO PRINCIPAL -
+
+Se caso vc quisesse fazer ligação de outra pagina com o banco de dados, vc teria que fazer todo o processo de ligação novamente, oq teria mais linha e seria dificil fazer a manutenção se caso desse algum probleminha, para evitar isso, vc pode apenas importar o arquivo para sua pagina principal com o codigo 'require_once'{
+    ex:
+
+    require_once 'conexao.php';
+
+    OBS: Nesse caso, vc ta importando todos os dados da pagina de conexao para a pagina do seu codigo principal. É importante colocar no começo do codigo para inciar a conexao logo no começo.
+
+}
+
+-----------------------------------------------------------------------------------------------------------
+
+- PREPARANDO O HTML PARA ENVIAR DADOS PARA O PHP -
+
+Importante ressaltar que para mandar os valores para o php e depois para o banco de dado, é importante que estejam dentro do 'form' no html, pq dentro dele vamos informar a 'action' e o 'method', onde vamos informar aonde vamos enviar e que metodo vamos enviar.{
+    ex:
+
+    <form action="" method="post">
+
+    </form>
+
+    OBS: É dentro dela aonde vamos criar todos os comandos para receber e enviar dados para o PHP.
+
+}
+
+Dentro do 'form' vamos criar as tags aonde vamos receber os valores{
+    ex:
+
+    <input type="text" name="nome" required>
+
+    OBS: Dentro da tag input, vamos receber os valores, ou seja, nesse exemplo vamos receber o nome do usuario. É importante sempre informar o 'name' da tag, pq é a partir dela que vamos conseguir fazer a ligação e pagar os valores para incluir nas variaveis do php.
+}
+
+E por ultimo e não menos importante, um botão para envio dos valores do 'type' submit{
+    ex:
+
+    <button type="submit">Enviar</button>
+}
+
+-----------------------------------------------------------------------------------------------------------
+
+- RECEBENDO OS VALORES E INCLUINDO NO BANCO DE DADOS -
+
+Para iniciar, vamos criar variaveis aonde vamos ligar com os 'input' do 'form'{
+    ex:
+
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    OBS: Aqui criamos as variaveis, depois informamos que ela é do 'method' POST e dentro dela colocamos o nome, que é o mesmo nome que atribuimos ao 'name' dentro do input.
+}
+
+Depois criamos a uma variavel aonde dentro dela, vamos mandar comandos sql que irão mandar os valores das variaveis que criamos dentro do PHP para o banco de dados{
+    ex:
+
+    $sql = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senha')";
+
+    OBS: Comando sql que da o comando que irá incluir na tabela, dentro dos campos que criamos, os valores das variaveis que criamos dentro do PHP.
+}
+
+Agora fazemos outra verificação, se caso os dados forem inseridos corretamente ele irá uma mensagem de confirmação, caso contrario, mensagem de erro{
+    ex:
+
+    if(mysqli_query($conexao, $sql)){
+        echo "CADASTRO REALIZADO COM SUCESSO!";
+    } else {
+        echo "ERRO AO CADASTRAR: " . mysqli_error($conexao);
+    }
+
+    OBS:'mysqli_query($conexao, $sql)' Esse é a função que verifica se foi incluido ou nao os valores dentro do banco de dados. 'mysqli_error($conexao)' E esse é o comando que mostra aonde foi o erro.
+
+}
