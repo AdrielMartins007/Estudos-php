@@ -54,9 +54,14 @@ form .entrada{
     font-size: 20px;
 }
 
-form button{
+.botoes{
+    display: flex;
+    gap: 40px;
+}
+
+button{
     padding: 15px;
-    width: 25%;
+    width: 50%;
     border-radius: 15px;
     border: none;
     cursor: pointer;

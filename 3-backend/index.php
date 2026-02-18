@@ -63,7 +63,10 @@ if(mysqli_query($conexao, $sql)){ /* VERIFICAÇÃO DA INCLUSÃO DOS DADOS NO BAN
             <input type="password" name="senha" required>
         </div>
 
-        <button type="submit">Enviar</button>
+        <div class="botoes">
+            <button type="submit">Enviar</button>
+            <button onclick="window.location.href='mostrar-dados.php'">Mostrar</button>
+        </div>
 
     </form>
 
