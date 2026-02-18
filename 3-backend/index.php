@@ -16,6 +16,20 @@ ESSE É O MAIS SEGURO PQ PRIMEIRO, SE CASO DER ERRO DE CONEXÃO ELE PARA O SISTE
 
 */
 
+/* ENVIANDO OS DADOS PARA O BANCO DE DADOS */
+
+$nome = $_POST['arquivo']; /* CRIAÇÃO DAS VARIAVEIS QUE IRÁ RECEBER OS VALORES DO INPUT */
+$email = $_POST['email'];
+$senha = $_POST['senha'];
+
+$sql = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senha')"; /* COMANDO SQL PARA ENVIO DOS DADOS DENTRO DO BANCO DE DADOS */
+
+if($conexao->query($sql)){ /* VERIFICAÇÃO DA INCLUSÃO DOS DADOS NO BANCO DE DADOS */
+    echo "CADASTRO REALIZADO COM SUCESSO!";
+} else {
+    echo "ERRO AO CADASTRAR: " . $conexao->error; /* SE CASO DER ERRO, NOTIFICAR E MOSTRAR AONDE ESTÁ OS ERROS */
+}
+
 ?>
 
 <!DOCTYPE html>
