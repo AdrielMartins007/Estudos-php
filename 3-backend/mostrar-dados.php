@@ -28,7 +28,9 @@ $resultado = mysqli_query($conexao, $sql);
 
             <hr>
 
-        <?php } ?>
+        <?php } 
+        
+        ?>
 
     </form>
 
