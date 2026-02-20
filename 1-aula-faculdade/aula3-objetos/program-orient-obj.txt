@@ -1,0 +1,62 @@
+- PRIMEIROS PASSOS -
+
+O primeiro passo é a criação da nossa classe, onde iremos  informar quais propriedades o objeto que criaremos terá mais pra frente{
+    ex:
+
+    class cadastro{
+
+    }
+}
+
+Depois, dentro dela vamos criar as propriedades da classe, basicamente sao as variaveis onde será irá receber os valores que iremos incluir no nosso objeto{
+    ex:
+
+    public $nome;
+    public $email;
+    public $senha;
+
+    OBS: É necessário declarar a visibilidade (public, private ou protected), que define onde a propriedade pode ser acessada.
+}
+
+O proximo passo é o construct, é a funcao que vai incluir os valores dentro das variaveis assim que criamos o nosso objeto de forma automatica{
+    ex:
+
+    public function __construct($nome, $email, $senha)
+}
+
+Depois, vamos pegar a variavel de propriedade e informar quais valores serão incluindo dentro dela{
+    ex:
+
+    $this->nome = $nome;
+    $this->email = $email;
+    $this->senha = $senha;
+
+    OBS: Isso dentro do construct, ou seja, a propriedade de seleção nome(que selecionado usando a tag 'this') irá receber o valor da variavel $nome, que vem do objeto que criarmos.
+}
+
+O proximo é a função de mensagem{
+    ex:
+
+    public function mensagem(){
+        
+        echo "Bem vindo $this->nome,<br><br>email: $this->email<br>senha: $this->senha.";
+    }
+
+    OBS: Poderiamos criar qualquer outra função, até o envio de valores para o banco de dados, mas nesse caso criamos uma funcao para exibir a mensagem dos valores que incluimos dentro das propriedades.
+}
+
+Depois de criamos a classe e os propriedades dela, vamos agora criar o nosso objeto com os valores que irá ser incluido dentro das propriedades da classe{
+    ex:
+
+    $mostrar = new cadastro("Adriel", "Adriel123@gmail.com", 123456);
+
+    OBS: Isso depois da classe fechada, criamos nosso objeto 'new cadastro', onde os valores será enviado para o construct, que armazena nas propriedades. É importante colocar os valores na ordem que colocamos dentro do construct
+}
+
+Agora, chamamos a função que criamos dentro da classe{
+    ex:
+
+    $mostrar->mensagem();
+
+    OBS: Nesse caso usamos o operador '->' para acessar e executar funções ou propriedades que criamos dentro da classe, isso fora da classe, ou seja, estamos chamando a função e executando fora da classe.
+}
