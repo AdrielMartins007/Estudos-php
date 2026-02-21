@@ -1,0 +1,40 @@
+- REGRAS VARIAVEIS -
+
+1 - VARIAVEIS SEMPRE PRECISAM COMEÇAR COM '$'.
+2 - DEPOIS DO CIFRAO PODE SER LETRA OU '_'.
+3 - ACEITA CARACTERES ACENTUADOS 'Á, É, Ç, ÇÃ,'.
+4 - NAO PODE USAR CARACTERES DENTRO DA LINGUAGEM COMO '$this'.
+
+------------------------------------------------------------------------------------------------------------------------
+
+- DECLARANDO UMA VARIAVEL -
+
+Para declarar uma variavel, é necessario incluir um '$' antes do nome, depois vc inclui o nome da variavel e o valor que ela vai receber{
+    ex:
+
+    $nome = 'Adriel Martins';
+}
+
+Você pode tambem declarar uma constante, ou seja, uma 'variavel' onde o valor dela nao pode ser mais mudado depois que vc declarou{
+    ex:
+
+    const GENERO = 'Masculino';
+
+    OBS: Não é obrigatorio deixar as letras maiusculas, mas por padrao de mercado é importante pra diferenciar de uma variavel normal.
+}
+
+Voce pode tambem mudar o seu tipo primitivo de forma forçada, incluindo o tipo dentro dentro de parenteses{
+    ex: 
+
+    $idade = (int) "23";
+
+    OBS: No caso essa aqui é string por estar entre parenteses, mas vc fez uma coersão do tipo, e agora ela é um 'int'.
+}
+
+Para saber o tipo de variavel que ela é, vc usa a funcao var_dump{
+    ex:
+
+    var_dump($idade);
+
+    OBS: no caso aqui, como forçamos ela ser um inteiro, quando exibir ela vai mostrar 'int(23)'.
+}

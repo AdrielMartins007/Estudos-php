@@ -1,0 +1,39 @@
+- CRIAÇÃO DO FORMULARIO -
+
+Para a criação do formulario onde os dados serão mandados para o servidor, é necessario primeiro informar a 'action', que é pra onde os dados serão enviados e esse será o arquivo php. Outra coisa importante é imformar o 'method' que de acordo com o metodo será recebida pela variavel global{
+    ex:
+
+    <form action="cadastro.php" method="get">
+
+    OBS: Aqui no caso ta informando que irá para o arquivo 'cadastro.php' e usando o method 'get'.
+}
+
+O proximo passo seria a criação das tags para receber os valores. A tag label serve basicamente para se juntar com a tag input com o 'for' e ela se liga com o 'id' do input. Outro pinto inportante dentro do input é o 'name', onde será a forma com que o php pega o valor dela e inclui dentro de uma variavel global{
+    ex:
+
+    <label for="nome">Nome:</label>
+
+    <input type="text" name="nome" id="nome">
+
+    OBS: o nome for é identico com o id, isso permite a ligação entre os dois. O name é o nome que permitirá a ligação com o php.
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+- ARQUIVO QUE RECEBERA OS VALORES DO FORMULARIO -
+
+Agora no arquivo cadastro.php, criamos a variavel onde recebera os valores do input para podermos usar no servidor ou na web, para fazer isso usamos o '$_GET[]', o nome varia de acordo com o method que vc criou{
+    ex:
+
+    $nome = $_GET["nome"] ?? "sem nome";
+
+    OBS: Aqui criamos a variavel $nome onde ela recebe o valor do input que o usuario digitou e incluimos graças a variavel global. as interrogações é uma forma de validação se caso o usuario nao inserir valores.
+}
+
+Depois pedimos para exibir uma mensagem de texto com os valores que recebemos do usuario via formulario{
+    ex:
+
+    echo "<h3>Seja muito bem vindo $nome $sobre!...</h3>";
+
+    OBS: Incluindo um pouco de html para formatar o texto e deixa-lo melhor, outro ponto é que como usamos aspas duplas, nao é preciso inserir o ponto entre as variaveis para concatena-las.
+}

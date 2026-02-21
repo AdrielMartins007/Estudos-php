@@ -1,0 +1,45 @@
+- PRIMEIROS COMANDOS -
+
+Uma das coisas que ajuda pra caramba é a possibilidade dentro das tags html. Para iniciar a codificar os codigos php, vc precisa iniciar com as tags{
+
+    <?php
+
+    ?>
+}
+
+O comando para exibir uma mensagem na tela é o 'echo' ou 'print'{
+    echo 'olá mundo 🌍<br>'
+
+    print 'testando outra tag de exibição';
+
+    OBS: uma coisa interessante é que pode incluir emojis dentro das tags de exibição.
+}
+
+Existe tambem uma forma de incluir mais rapido sem precisar escrever echo{
+    ex:
+
+    <?= 'Olá mundo' ?>
+
+    OBS: Aqui so funciona se vc for usar no codigo somente o echo.
+}
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+- MOSTRAR DATA E HORA -
+
+Existe uma função muito util onde vc pode pedir pra mostrar a data e a hora{
+    ex:
+
+    echo 'Hoje é dia: ' . date('d/M/Y') . '<br>';
+
+    echo 'E são: ' . date('G:i:s');
+
+    OBS: As horas que sao mostradas sao as horas que estao salvas no servidor, ou seja, muitas vezes o dia e ahora estao erradas. Para resolver isso usa-se uma função que ajusta isso de acordo a cidade que vc colocou{
+        ex:
+
+        date_default_timezone_set("America/Belem");
+        date_default_timezone_set("America/Sao_Paulo");
+
+        OBS: Aqui vc ta informando que vc está localizado na america e em belem/Sao_Paulo, entao ele vai pegar o horario da cidade que vc informou.
+    }
+}

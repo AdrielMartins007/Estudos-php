@@ -1,0 +1,30 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, rgb(75, 126, 126), darkslategrey);
+    font-family: sans-serif;
+}
+
+main{
+    width: 450px;
+    background-color: white;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+main .entrada{
+    display: flex;
+    flex-direction: column;
+}
+
+.entrada input{
+    margin-top: 10px;
+}
+
+main .botao{
+    margin-top: 30px;
+}
