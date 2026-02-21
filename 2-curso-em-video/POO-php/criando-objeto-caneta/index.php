@@ -1,0 +1,15 @@
+<?php 
+require_once 'caneta.php'; /* IMPORTANDO OS DADOS DA CLASSE CANETA PARA A NOVA PAGIAN */
+
+$c1 = new Caneta; /* CRIANDO O OBJETO CANETA */
+$c1->cor = "azul"; /* INSTANCIANDO A CANETA, OU SEJA, ATRIBUINDO VALORES A ELA */
+$c1->ponta = 0.5;
+$c1->tampar(); /* INCLUINDO A FUNCAO AONDE VAI REALIZAR OQ LHE FOI ATRIBUIDO NA FUNÇÃO */
+
+/*print_r($c1);  PEDINDO PARA MOSTRAR OS DADOS DOS VALORES QUE ATRIBUIMOS AO OBJETO, PODERIMOS USAR O VAR_DUMP() */
+
+$c2 = new Caneta; /* CRIANDO UM NOVO OBJETO */
+$c2->cor = "preta"; /* INSTANCIANDO O NOVO OBJETO */
+$c2->ponta = 0.5;
+$c2->destampar();
+?>
