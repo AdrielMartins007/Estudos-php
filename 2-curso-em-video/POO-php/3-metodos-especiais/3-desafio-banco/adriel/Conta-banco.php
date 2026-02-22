@@ -1,83 +1,65 @@
 <?php 
 
-class Contabanco{
+class contaBanco{
+    public $conta;
+    public $dono;
+    public $tipo;
     public $status;
-    private $dono;
-    private $saque;
-    private $deposito;
-    private $saldo;
+    public $saldo;
 
-    public function __construct(){
-        $this->setSaldo(0);
-        $this->setStatus(false);
+    private static $contador = 0; /* VARIAVEL QUE VAI RECEBER VALORES A CADA NOVO USUARIO */
+
+    public function __construct($dono)
+    {
+        $this->dono = $dono;
+        $this->status = false;
+        $this->saldo = 0;
+        $this->conta = 0;
     }
 
     public function abrirConta(){
-        $this->setStatus("ATIVADO");
+        $this->status = true;
+        echo "OLÁ " . $this->dono . ", SUA CONTA FOI ATIVADA COM SUCESSO<br><br>";
+        $this->status = "ATIVO";
+        self::$contador++; /* A CADA NOVO USUARIO QUE USAR A FUNÇÃO ABRIRCONTA O NUMEORO DA CONTA SERÁ + 1 */
+        $this->conta = self::$contador;
 
-        echo "BEM VINDO SR: " . $this->dono . ", SUA CONTA FOI ATIVADA COM SUCESSO...<br><br>";
+    }
+
+    public function setCorrente(){
+        $this->tipo = "CONTA CORRENTE";
+        $this->saldo = 50;
+    }
+
+    public function setPoupanca(){
+        $this->tipo = "CONTA POUPANÇA";
+        $this->saldo = 150;
     }
 
     public function fecharConta(){
-        $this->setStatus("FECHADO");
-        $this->setSaldo(0);
-        echo "CONTA FECHADA COM SUCESSO...<br><br>";
-    }
-
-    public function saque($valor){
-        $this->setSaldo($this->getSaldo() - $valor);
-        $this->setSaque($valor);
-        echo "SAQUE DE " . $valor . " REAIS NA CONTA DE " . $this->getDono() . "<br><br>";
+        if($this->saldo < 0){
+            echo "NAO É POSSIVEL FECHAR A CONTA, VC ESTÁ EM DEBITO<br><br>";
+        } else if ($this->saldo > 0){
+            echo "NAO É POSSIVEL FECHAR A CONTA, VC AINDA POSSUI SALDO NA CONTA<br><br>";
+        } else {
+            echo "SUA CONTA FOI FECHADA COM SUCESSO...<br><br>";
+            $this->status = "INATIVO";
+        }
     }
 
     public function deposito($valor){
-        $this->setSaldo($this->getSaldo() + $valor);
-        $this->setDeposito($valor);
-        echo "DEPOSITO DE " . $valor . " REAIS NA CONTA DE " . $this->getDono() . "<br><br>";
+        $this->saldo += $valor;
+        echo $this->dono . " RELIZOU UM DEPOSITO DE " . $valor . "<br><br>";
     }
 
-
-
-    public function getStatus(){
-        return $this->status;
+    public function saque($valor){
+        if ($this->saldo < $valor){
+            echo "NÃO É POSSIVEL SACAR VALOR MAIOR QUE " . $this->saldo . ", TENTE OUTRO VALOR<br><br>";
+        } else {
+            $this->saldo -= $valor;
+            echo $this->dono . " RELIZOU UM SAQUE DE " . $valor . "<br><br>";
+        }
     }
-
-    public function setStatus($st){
-        $this->status = $st;
-    }
-    
-    public function getDono(){
-        return $this->dono;
-    }
-
-    public function setDono($dn){
-        $this->dono = $dn;
-    }
-
-    public function getSaque(){
-        return $this->saque;
-    }
-
-    public function setSaque($sq){
-        $this->saque = $sq;
-    }
-
-    public function getDeposito(){
-        return $this->deposito;
-    }
-
-    public function setDeposito($dp){
-        $this->deposito = $dp;
-    }
-
-    public function getSaldo(){
-        return $this->saldo;
-    }
-
-    public function setSaldo($sd){
-        $this->saldo = $sd;
-    }
-
 }
 
 ?>
