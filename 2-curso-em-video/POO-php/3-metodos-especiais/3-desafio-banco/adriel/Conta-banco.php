@@ -18,9 +18,10 @@ class contaBanco{
     }
 
     public function abrirConta(){
-        $this->status = true;
-        echo "OLÁ " . $this->dono . ", SUA CONTA FOI ATIVADA COM SUCESSO<br><br>";
         $this->status = "ATIVO";
+
+        echo "OLÁ " . $this->dono . ", SUA CONTA FOI ATIVADA COM SUCESSO<br><br>";
+
         self::$contador++; /* A CADA NOVO USUARIO QUE USAR A FUNÇÃO ABRIRCONTA O NUMEORO DA CONTA SERÁ + 1 */
         $this->conta = self::$contador;
 
@@ -29,11 +30,15 @@ class contaBanco{
     public function setCorrente(){
         $this->tipo = "CONTA CORRENTE";
         $this->saldo = 50;
+
+        echo "CONTA CORRENTE CRIADA COM SUCESSO<br><br>";
     }
 
     public function setPoupanca(){
         $this->tipo = "CONTA POUPANÇA";
         $this->saldo = 150;
+
+        echo "CONTA POUPANÇA CRIADA COM SUCESSO<br><br>";
     }
 
     public function fecharConta(){
@@ -59,6 +64,10 @@ class contaBanco{
             $this->saldo -= $valor;
             echo $this->dono . " RELIZOU UM SAQUE DE " . $valor . "<br><br>";
         }
+    }
+
+    public function mostrarSaldo(){
+        echo "SEU SALDO ATUAL: " . $this->saldo;
     }
 }
 
