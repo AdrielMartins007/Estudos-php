@@ -1,0 +1,90 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: linear-gradient(to bottom, rgb(83, 139, 139), darkslategray);
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form{
+    width: 70%;
+    max-width: 550px;
+    height: 70vh;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 2px 10px black;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+form #titulo{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+form #nome{
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#nome input{
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+    font-size: 23px;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+fieldset{
+    margin: 20px auto;
+    width: 90%;
+    height: 23vh;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+legend{
+    text-align: center;
+    font-size: 20px;
+}
+
+form #tipo-conta{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#tipo-conta input{
+    padding: 25px;
+    font-size: 20px;
+    border-radius: 25px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+form #botao{
+    width: 100%;
+    text-align: center;
+}
+
+#botao button{
+    margin-top: 15px;
+    padding: 25px;
+    width: 50%;
+    border-radius: 20px;
+    border: 1px solid black;
+    font-size: 20px;
+    cursor: pointer;
+}
