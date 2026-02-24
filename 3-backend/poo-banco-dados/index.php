@@ -1,91 +1,69 @@
 <?php
 
-class ContaBanco
-{
-    public $nome;
-    public $status;
-    public $tipo;
-    public $saldo;
+session_start();
 
-    public function __construct($nome) /* RECEBENDO DO USUARIO SOMENTE A VARIAVEL NOME */
-    {
-        $this->nome = $nome;
-        $this->status = "INATIVO";
-        $this->tipo = "";
-        $this->saldo = 0;
-    }
-
-    public function abrirConta()
-    {
-        if ($this->status == "ATIVO") {
-            echo "SUA CONTA JÁ ESTA ATIVA!<br><br>";
-        } else {
-            $this->status = "ATIVO";
-            echo "OLÁ " . $this->nome . ", SUA CONTA FOI ATIVADA COM SUCESSO!<br><br>";
-        }
-    }
-
-    public function fecharConta()
-    {
-        if ($this->saldo > 0) {
-            echo "NAO É POSSIVEL FECHAR A CONTA COM VALORES EM ABERTO!<br><br>";
-        } else if ($this->saldo < 0) {
-            echo "NAO É POSSIVEL FECHAR A CONTA COM SALDO NEGATIVO!<br><br>";
-        } else {
-            $this->status = "INATIVO";
-            $this->tipo = "";
-            echo "OLÁ " . $this->nome . ", SUA CONTA FOI DESATIVADA COM SUCESSO!<br><br>";
-        }
-    }
-
-    public function sacar($valor)
-    {
-        $this->saldo -= $valor; /* FUNÇÃO PARA REMOVER O VALOR DE SALDO */
-        echo "FOI EFETUDADO UM SAQUE NO VALOR DE " . $valor . " REAIS!<br><br>";
-    }
-
-    public function depositar($valor)
-    {
-        $this->saldo += $valor; /* FUNCAO PARA ADICIONAR O VALOR DE SALDO */
-        echo "FOI EFETUDADO UM DEPOSITO NO VALOR DE " . $valor . " REAIS!<br><br>";
-    }
-
-    public function setPoupanca() /* FUNCAO PARA INCLUIR O TIPO, DENTRO DA VARIAVEL $tipo*/
-    {
-        $this->tipo = "CONTA POUPANÇA";
-        $this->saldo = 150;
-    }
-
-    public function setCorrente()
-    {
-        $this->tipo = "CONTA CORRENTE";
-        $this->saldo = 50;
-    }
-}
+require_once 'Conta-banco.php';
 
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar-conta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+    #info {
+        text-align: center;
+        margin: 20px;
+    }
+</style>
+
+<body>
 
     <form action="" method="post">
 
-    <input type="text" name="nome" placeholder="Digite seu nome: " style="text-align: center; width: 350px">
+        <div id="titulo">
+            <h1>CRIAR CONTA BANCÁRIA</h1>
+        </div>
 
-</form>
-<pre>
-<?php
+        <div id="nome">
+            <input type="text" name="nome" placeholder="Nome:">
+        </div>
 
-$p1 = new ContaBanco($_POST['nome']); /* INCLUINDO SOMENTE O NOME, QUE VAI PARA O CONSTRUCT */
-$p1->abrirConta();
-$p1->setPoupanca();
-$p1->depositar(600);
-$p1->depositar(200);
-$p1->sacar(1000);
+        <div id="botao">
+            <button type="submit" name="criar">Criar conta</button>
+            <button type="submit" name="proximo">Saque e Deposito</button>
+        </div>
 
-print_r($p1);
+        <div id="info">
+            <?php
 
-?>
+            if (isset($_REQUEST['criar'])) {
 
-</pre>
+                $p1 = new ContaBanco($_REQUEST['nome']);
+
+                $p1->abrirConta();
+
+                $_SESSION['nome'] = $p1;
+            }
+
+            if (isset($_REQUEST['proximo'])) {
+
+                header("location: saque-deposito.php");
+
+                exit();
+            }
+
+            ?>
+        </div>
+
+    </form>
+
+</body>
 
 </html>
