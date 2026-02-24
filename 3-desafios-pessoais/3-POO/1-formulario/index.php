@@ -5,11 +5,11 @@ class Formulario{
     public $email;
     public $senha;
 
-    public function __construct($dados){ /* CRIANDO A VARIAVEL DENTRO DO CONSTRUCT AONDE VAI RECEBER OS DADOS DO FORMULARIO */
+    public function __construct($nome, $email, $senha){ /* CRIANDO A VARIAVEL DENTRO DO CONSTRUCT AONDE VAI RECEBER OS DADOS DO FORMULARIO */
 
-        $this->nome = $dados['nome']; /* RECEBENDO OS DADOS E INCLUINDO DENTRO DAS VARIAVEIS QUE CRIAMOS, USANDO O NAME DENTRO DO FORM */
-        $this->email = $dados['email'];
-        $this->senha = $dados['senha'];
+        $this->nome = $nome; /* RECEBENDO OS DADOS E INCLUINDO DENTRO DAS VARIAVEIS QUE CRIAMOS, USANDO O NAME DENTRO DO FORM */
+        $this->email = $email;
+        $this->senha = $senha;
 
     }
 
@@ -125,7 +125,7 @@ class Formulario{
         <?php 
 
         if (isset($_REQUEST['botao'])){
-            $p1 = new Formulario($_REQUEST); /* ENVIANDO OS DADOS RECEBIDOS PARA DENTRO DO ARRAY $dados */
+            $p1 = new Formulario($_REQUEST['nome'], $_REQUEST['email'], $_REQUEST['senha']);
             $p1->mensagem();
         }
         
