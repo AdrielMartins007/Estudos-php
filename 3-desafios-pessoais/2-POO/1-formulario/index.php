@@ -14,9 +14,9 @@ class Formulario{
     }
 
     public function mensagem(){
-        echo "Nome: " . $this->nome;
-        echo "Email: " . $this->email;
-        echo "Senha: " . $this->senha;
+        echo "Nome: " . $this->nome . "<br>";
+        echo "Email: " . $this->email . "<br>";
+        echo "Senha: " . $this->senha . "<br>";
     }
 }
 ?>
@@ -51,7 +51,7 @@ class Formulario{
 
     form {
         width: 60%;
-        max-width: 600px;
+        max-width: 500px;
         height: 60vh;
         background-color: white;
         border-radius: 20px;
@@ -59,6 +59,14 @@ class Formulario{
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
+        margin: 20px;
+    }
+
+    #form2{
+        box-sizing: border-box;
+        padding: 20px;
+        text-align: center;
+        font-size: 20px;
     }
 
     form #titulo {
@@ -121,16 +129,17 @@ class Formulario{
 
     </form>
 
-    <div id="info">
-        <?php 
-
-        if (isset($_REQUEST['botao'])){
-            $p1 = new Formulario($_REQUEST['nome'], $_REQUEST['email'], $_REQUEST['senha']);
-            $p1->mensagem();
-        }
+    <form id="form2">
+        <div id="info">
+            <?php
+            if (isset($_REQUEST['botao'])){
+                $p1 = new Formulario($_REQUEST['nome'], $_REQUEST['email'], $_REQUEST['senha']);
+                $p1->mensagem();
+            }
         
-        ?>
-    </div>
+            ?>
+        </div>
+    </form>
 
 </body>
 
