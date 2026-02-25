@@ -23,34 +23,42 @@ class JogoLuta{
         echo "TODOS PRONTOS? LUTEM...<br><br>";
     }
 
-    public function ataque1($lut1){
+    public function atqBolso(){
 
-        echo "LUTADOR " . $lut1 . " ATACOU...<br><br>";
+        echo $this->lut1 . " ATACOU...<br><br>";
 
-        $this->lut1Vida += 10;
-        $this->lut2Vida -= 10;
+        $this->lut2Vida += 10;
+        $this->lut1Vida -= 10;
+        
+        echo $this->lut1 . ": Tome seu cachaceiro<br>";
+        echo $this->lut2 . ": Calma companheiro<br><br>";
 
-        echo "STATUS:<br>";
-        echo "lutador: " . $lut1 . "<br>Vida: " . $this->lut2Vida . "<br>";
-        echo "Lutador " . $this->lut2 . "<br>Vida: " . $this->lut1Vida;
+        echo "Status:<br>";
+        echo "lutador: " . $this->lut1 . "<br>Vida: " . $this->lut2Vida . "<br>";
+        echo "Lutador: " . $this->lut2 . "<br>Vida: " . $this->lut1Vida . "<br><br>";
     }
 
-    public function ataque2($lut2){
-        echo "LUTADOR " . $lut2 . " ATACOU...<br><br>";
+    public function atqLula(){
+        echo $this->lut2 . " ATACOU...<br><br>";
 
         $this->lut1Vida += 10;
         $this->lut2Vida -= 10;
+        
+        echo $this->lut2 . ": Toma bolsominion<br>";
+        echo $this->lut1 . ": Ai, seu filho da put#<br><br>";
 
-        echo "STATUS:<br>";
+        echo "Status:<br>";
         echo "lutador: " . $this->lut1 . "<br>Vida: " . $this->lut2Vida . "<br>";
-        echo "Lutador " . $lut2 . "<br>Vida: " . $this->lut1Vida;
+        echo "Lutador: " . $this->lut2 . "<br>Vida: " . $this->lut1Vida;
     }
 }
 ?>
 
 <?php
 
-$user1 = new JogoLuta("Bolsonaro", "Lula");
+$user1 = new JogoLuta("BOLSONARO", "LULA");
 $user1->iniciar();
+$user1->atqBolso();
+$user1->atqLula();
 
 ?>
