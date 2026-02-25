@@ -7,6 +7,7 @@ class Senhas
     public $senha; /* senhas guardadas */
     public $email; /* emails guardados com as senhas do usuario */
     public $nome; /* nome usuario */
+    public $origem; /* informa de onde é a conta que foi cadastrada */
 
     public static $listaSenhas = []; /* array com as senhas salvas do usuario */
     public static $listaContas = []; /* array com email e senha da conta de acesso do app */
@@ -30,13 +31,16 @@ class Senhas
     public function fazerLogin($emailConta, $senhaConta)
     {
         foreach (self::$listaContas as $conta) {
+
             if ($conta['email'] == $emailConta && $conta['senha'] == $senhaConta) {
+
+                echo "Login realizado com sucesso<br>";
                 return true;
-            } else {
-                echo "Conta ja cadastrada!";
-                exit;
             }
         }
+
+        echo "Email ou senha incorretos<br>";
+        return false;
     }
 
     public function verificadorLogin($emailConta)
@@ -50,13 +54,16 @@ class Senhas
         return false;
     }
 
-    public function salvarSenha($email, $senha)
+    public function salvarSenha($origem, $email, $senha)
     {
 
         self::$listaSenhas[] = [
+            'nomeConta' => $origem,
             'emailUsuario' => $email,
             'senhaUsuario' => $senha
         ];
+
+        echo "Sua senha foi salva com sucesso :)<br><br>";
     }
 
     public function salvarConta($emailConta, $senhaConta)
@@ -73,29 +80,9 @@ class Senhas
     {
         foreach (self::$listaSenhas as $registro) {
 
+            echo "Conta: " . $registro['nomeConta'] . "<br>";
             echo "Email: " . $registro['emailUsuario'] . "<br>";
             echo "Senha: " . $registro['senhaUsuario'] . "<br><br>";
         }
     }
 }
-
-?>
-
-<html>
-<pre>
-        <?php
-
-        $user1 = new Senhas("adriel123@gmail.com", 123123, null, null, "Adriel");
-        $user1->salvarConta("adriel123@gmail.com", 123123);
-        $user1->salvarSenha("adriel123@gmail.com", "thais123");
-        $user1->salvarSenha("thais123@gmail.com", "thais123");
-        $user1->salvarSenha("thais123@gmail.com", "thais123");
-        $user1->salvarSenha("thais123@gmail.com", "thais123");
-        $user1->salvarSenha("thais123@gmail.com", "thais123");
-        $user1->salvarSenha("thais123@gmail.com", "thais123");
-        $user1->mostrarDados();
-
-        ?>
-    </pre>
-
-</html>
