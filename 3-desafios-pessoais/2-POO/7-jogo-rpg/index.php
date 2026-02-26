@@ -34,6 +34,7 @@ class Personagem{
         if($arma == ""){
             echo "Sua arma atual é: Punhos<br>";
         } else {
+            $this->arma = $arma;
             echo "Sua arma atual é: " . $arma;
         }
     }
