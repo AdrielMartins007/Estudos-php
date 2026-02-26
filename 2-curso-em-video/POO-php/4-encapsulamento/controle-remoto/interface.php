@@ -4,6 +4,7 @@
 /* Normalmente, seria necessario colocar o abstract antes da function, mas no php moderno nao precisa mais */
 
 interface Controlador{
+    
     public function ligar();
 
     public function desligar();

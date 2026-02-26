@@ -1,9 +1,9 @@
 <?php 
 
-require_once 'Controle-remoto.php';
+require_once 'Controle-remoto.php'; /* importando os dados da classe controle remoto */
 
-$user = new ControleRemoto();
-$user->ligar();
+$user = new ControleRemoto(); /* criando o objeto para instanciarmos */
+$user->ligar(); /* chamando todas as funções... */
 $user->play();
 $user->abrirMenu();
 $user->pause();
