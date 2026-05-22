@@ -51,7 +51,6 @@ echo $num1 .= $num2;
 /* OPERADOR TERNARIO */
 
 $idade = 17;
-$faixa;
 
 $faixa = ($idade >= 18)? "Maior de idade" : "Menor de idade";
 
